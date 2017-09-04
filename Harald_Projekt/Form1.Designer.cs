@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.team1 = new System.Windows.Forms.TextBox();
             this.team2 = new System.Windows.Forms.TextBox();
             this.team1score = new System.Windows.Forms.TextBox();
@@ -125,6 +126,7 @@
             this.Controls.Add(this.team2);
             this.Controls.Add(this.team1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "StreamTextSaveTool";
             this.Load += new System.EventHandler(this.Form1_Load);
