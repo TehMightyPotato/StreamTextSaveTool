@@ -13,10 +13,11 @@ namespace Harald_Projekt
 {
     public partial class Form1 : Form
     {
-        private TextBox Text1 { get; set; }
-        private TextBox Text2 { get; set; }
-        private TextBox Score1 { get; set; }
-        private TextBox Score2 { get; set; }
+        // #of pair #of box
+        private TextBox Text11 { get; set; }
+        private TextBox Text12{ get; set; }
+        private TextBox Score11 { get; set; }
+        private TextBox Score12 { get; set; }
         public Form1 form;
         
         public Form1()
@@ -36,11 +37,11 @@ namespace Harald_Projekt
             {
                 form = Form.ActiveForm as Form1;
             }
-            Text1 = form.team1;
-            Text2 = form.team2;
-            Score1 = form.team1score;
-            Score2 = form.team2score;
-            string stringToSave = Text1.Text + " " + Text2.Text + " " + Score1.Text + " " + Score2.Text;
+            Text11 = form.team1;
+            Text12 = form.team2;
+            Score11 = form.team1score;
+            Score12 = form.team2score;
+            string stringToSave = Text11.Text + " " + Text12.Text + " " + Score11.Text + " " + Score12.Text;
             var savePath = form.directoryText.Text;
             try
             {
@@ -79,6 +80,11 @@ namespace Harald_Projekt
         private void helpButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This program saves the contents of the given textboxes following this scheme: \r\n'topLeft topRight bottomLeft bottomRight'\r\nThis programs intended use is to change text in .txt files than can be loaded by programs like OBS", "About", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        private void saveFile_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }
