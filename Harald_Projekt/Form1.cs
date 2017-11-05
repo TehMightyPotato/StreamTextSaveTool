@@ -14,10 +14,9 @@ namespace Harald_Projekt
     public partial class Form1 : Form
     {
         // #of pair #of box
-        private TextBox Text11 { get; set; }
-        private TextBox Text12{ get; set; }
-        private TextBox Score11 { get; set; }
-        private TextBox Score12 { get; set; }
+        private TextBox Text1 { get; set; }
+        private TextBox Text2 { get; set; }
+        private TextBox Text3 { get; set; }
         public Form1 form;
         
         public Form1()
@@ -37,15 +36,20 @@ namespace Harald_Projekt
             {
                 form = Form.ActiveForm as Form1;
             }
-            Text11 = form.team1;
-            Text12 = form.team2;
-            Score11 = form.team1score;
-            Score12 = form.team2score;
-            string stringToSave = Text11.Text + " " + Text12.Text + " " + Score11.Text + " " + Score12.Text;
-            var savePath = form.directoryText.Text;
+            Text1 = form.text1;
+            Text2 = form.text2;
+            Text3 = form.text3;
+            string stringToSave1 = Text1.Text;
+            string stringToSave2 = Text2.Text;
+            string stringToSave3 = Text3.Text;
+            var savePath1 = form.directoryText1.Text;
+            var savePath2 = form.directoryText2.Text;
+            var savePath3 = form.directoryText3.Text;
             try
             {
-                File.WriteAllText(savePath, stringToSave);
+                File.WriteAllText(savePath1, stringToSave1);
+                File.WriteAllText(savePath2, stringToSave2);
+                File.WriteAllText(savePath3, stringToSave3);
             }
             catch (Exception exc)
             {
@@ -53,16 +57,7 @@ namespace Harald_Projekt
             }
         }
 
-        private void team1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void team2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //browse Button Methods called by event handler
         private void browseButton_Click(object sender, EventArgs e)
         {
             if (form == null)
@@ -72,14 +67,40 @@ namespace Harald_Projekt
             saveFile.Filter = "Text files(*.txt) | *.txt";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                form.directoryText.Text = saveFile.FileName;
+                form.directoryText1.Text = saveFile.FileName;
             }
             
         }
 
+        private void browseButton2_Click(object sender, EventArgs e)
+        {
+            if (form == null)
+            {
+                form = Form.ActiveForm as Form1;
+            }
+            saveFile.Filter = "Text files(*.txt) | *.txt";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                form.directoryText2.Text = saveFile.FileName;
+            }
+        }
+
+        private void browseButton3_Click(object sender, EventArgs e)
+        {
+            if (form == null)
+            {
+                form = Form.ActiveForm as Form1;
+            }
+            saveFile.Filter = "Text files(*.txt) | *.txt";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                form.directoryText3.Text = saveFile.FileName;
+            }
+        }
+
         private void helpButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This program saves the contents of the given textboxes following this scheme: \r\n'topLeft topRight bottomLeft bottomRight'\r\nThis programs intended use is to change text in .txt files than can be loaded by programs like OBS", "About", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MessageBox.Show("This program saves the contents of the given textboxes. This programs intended use is to change text in .txt files than can be loaded by programs like OBS", "About", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
         private void saveFile_FileOk(object sender, CancelEventArgs e)
