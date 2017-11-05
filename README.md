@@ -1,5 +1,5 @@
 # StreamTextSaveTool
 Just a random project for a friend of mine
 
-It has 4 text fields for two teams and two scores which are saved in a .txt file in a specified location.
-This file then can be read by OBS and other streaming software to make for an easier way to edit the file
+This tool has 3 textboxes which can be saved in 3 different text documents without the need to open the files one at a time.
+These files then can be read by OBS and other streaming software or whatever.
